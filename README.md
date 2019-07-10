@@ -11,7 +11,7 @@ The HTTP response to this request contains any validation issues needing to be f
 ### Adding Leads
 ### Request
 #### URL
-https://{example.com}/lead/add?key={API_KEY}  
+https://{example.com}/lead/**add**?key={API_KEY}  
 Your website and API_KEY will be given to you when you start using the dialler system.
 
 #### BODY
@@ -35,7 +35,7 @@ Content: valid JSON object
 
 ### Request
 #### URL
-https://{example.com}/lead/cancel?key={API_KEY}  
+https://{example.com}/lead/**cancel**?key={API_KEY}  
 Your website and API_KEY will be given to you when you start using the dialler system.
 
 #### BODY
@@ -48,13 +48,16 @@ Content: valid JSON object
 |type|lead type|a valid type name|yes|
 |mobile|primary phone number|A valid phone number|yes|
 
+Note that deleting leads does note include a "test" field.
+
 ---
 ### DATA
 To include additional information within the dialler system about a lead, you can include other data not specified by us. You will need to format the data in JSON string format with escaped quote marks.  
 e.g:
 "data": "{\\"vehicle_make\\":\\"Ford\\",\\"addresss\\":\\"123 Greenacre Road\\"}"
-### TYPES
+### TYPE
 To create or delete a valid lead, you must specify the lead type. These types will be given to you when you start using the dialler system.
+
 
 ---
 
@@ -109,7 +112,7 @@ returns
     "cancelled": true
 }
 ```
-Note that deleting leads does note include a "test" field.
+
 ##### Fail States - Creating Leads
 ###### Lead already exists:
 ```
@@ -152,7 +155,7 @@ Note that deleting leads does note include a "test" field.
 }
 ```
 ##### Fail States - Deleting Leads
-###### Type is incorrect:
+###### Type doesn't exist:
 ```
 {
     "cancelled": false,
