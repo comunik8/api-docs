@@ -1,6 +1,6 @@
-## Insurance Revolution - Leads
+## Insurance Revolution - Leads API
 
-This documentation will describe to partners how they can submit or delete leads in the dialler system.
+This documentation will describe to partners how they can submit or delete leads in the dialler system via the API.
 
 Submitting leads is done by sending a HTTP **POST** request to our server with a valid request body in JSON format.
 
@@ -24,7 +24,7 @@ Content: valid JSON object
 |email|e-mail address|valid e-mail address|yes|
 |first_name|first name||yes|
 |surname|surname||yes|
-|mobile|primary phone number||yes|
+|mobile|primary phone number|A valid phone number|yes|
 |type|lead type|a valid type name|yes|
 |other_phone|any other phone number||no|
 |data|any other additional data|valid JSON string|no|
@@ -46,7 +46,7 @@ Content: valid JSON object
 | field | description | validation | required |
 | ----- | ----------- | ---------- | :------: |
 |type|lead type|a valid type name|yes|
-|mobile|primary phone number||yes|
+|mobile|primary phone number|A valid phone number|yes|
 
 ---
 ### DATA
@@ -96,3 +96,58 @@ Will Receive:
 }
 ```
 This means that your data format is correct and you can submit this to create a valid lead.
+#### DELETING LEADS
+```
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "mobile":"07840258823",
+    "type":"motor-trade",
+  }' "https://{example.com}/lead/cancel?key={API_KEY}"
+```
+returns
+```
+{
+    "cancelled": true
+}
+```
+##### Fail States - Creating Leads
+###### Lead already exists:
+```
+{
+    "saved": true,
+    "processed": false,
+    "error": "Existing Contact"
+}
+```
+###### Data field is malformed or empty:
+```
+{
+    "data": {
+        "0": "Empty or invalid content of `data` field"
+    }
+}
+```
+###### Call already scheduled:
+```
+{
+    "saved": true,
+    "processed": false,
+    "error": "Another call is already scheduled"
+}
+```
+###### Missing required field :
+```
+{
+    "email": {
+        "0": "Email cannot be blank."
+    }
+}
+```
+###### Type is incorrect:
+```
+{
+    "saved": true,
+    "processed": false,
+    "error": "Unknown Type"
+}
+```
+##### Fail States - Deleting Leads
