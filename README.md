@@ -109,6 +109,7 @@ returns
     "cancelled": true
 }
 ```
+Note that deleting leads does note include a "test" field.
 ##### Fail States - Creating Leads
 ###### Lead already exists:
 ```
@@ -151,3 +152,31 @@ returns
 }
 ```
 ##### Fail States - Deleting Leads
+###### Type is incorrect:
+```
+{
+    "cancelled": false,
+    "warning": server error (call group)
+}
+```
+###### Lead is not found:
+```
+{
+    "cancelled": false,
+    "warning": "not found"
+}
+```
+###### Lead has already been dialed:
+```
+{
+    "cancelled": false,
+    "warning": "already processed"
+}
+```
+###### Other error:
+```
+{
+    "cancelled": false,
+    "warning": "server error (save)"
+}
+```
