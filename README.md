@@ -9,7 +9,7 @@ The HTTP response to this request contains any validation issues needing to be f
 ---
 
 ### Adding Leads
-### Requests
+### Request
 #### URL
 https://{example.com}/lead/add?key={API_KEY}  
 Your website and API_KEY will be given to you when you start using the dialler system.
@@ -33,7 +33,7 @@ Content: valid JSON object
 ---
 ### Removing Leads
 
-### Requests
+### Request
 #### URL
 https://{example.com}/lead/cancel?key={API_KEY}  
 Your website and API_KEY will be given to you when you start using the dialler system.
@@ -49,8 +49,50 @@ Content: valid JSON object
 |mobile|primary phone number||yes|
 
 ---
-
+### DATA
+To include additional information within the dialler system about a lead, you can include other data not specified by us. You will need to format the data in JSON string format with escaped quote marks.  
+e.g:
+"data": "{\"vehicle_make\":\"Ford\",\"addresss\":\"123 Greenacre Road\"}"
 ### TYPES
 To create or delete a valid lead, you must specify the lead type. These types will be given to you when you start using the dialler system.
 
+---
+
 ### EXAMPLES
+#### CREATING LEADS
+##### Successful Submission of lead
+```
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "first_name":"John",
+    "surname":"Doe",
+    "mobile":"07840258823",
+    "email":"john.doe@test.com",
+    "type":"motor-trade"
+  }' "https://{example.com}/lead/add?key={API_KEY}"
+```
+Will receive:
+```
+{
+    "saved": true,
+    "processed": true
+}
+```
+This means that the data has been saved and also the data has been accepted as a new lead.  
+##### Correct format lead test
+```
+curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
+    "first_name":"John",
+    "surname":"Doe",
+    "mobile":"07840258823",
+    "email":"john.doe@test.com",
+    "type":"motor-trade",
+    "test": true
+  }' "https://{example.com}/lead/add?key={API_KEY}"
+```
+Will Receive:
+```
+{
+    "test": "ok"
+}
+```
+This means that your data format is correct and you can submit this to create a valid lead.
