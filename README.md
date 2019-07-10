@@ -52,7 +52,7 @@ Content: valid JSON object
 ### DATA
 To include additional information within the dialler system about a lead, you can include other data not specified by us. You will need to format the data in JSON string format with escaped quote marks.  
 e.g:
-"data": "{\"vehicle_make\":\"Ford\",\"addresss\":\"123 Greenacre Road\"}"
+"data": "{\\"vehicle_make\\":\\"Ford\\",\\"addresss\\":\\"123 Greenacre Road\\"}"
 ### TYPES
 To create or delete a valid lead, you must specify the lead type. These types will be given to you when you start using the dialler system.
 
