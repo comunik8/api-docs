@@ -70,7 +70,8 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "surname":"Doe",
     "mobile":"07840258823",
     "email":"john.doe@test.com",
-    "type":"motor-trade"
+    "type":"motor-trade",
+    "data": "{\\"vehicle_make\\":\\"Ford\\",\\"addresss\\":\\"123 Greenacre Road\\"}"
   }' "https://{example.com}/lead/add?key={API_KEY}"
 ```
 Will receive:
@@ -89,6 +90,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "mobile":"07840258823",
     "email":"john.doe@test.com",
     "type":"motor-trade",
+    "data": "{\\"vehicle_make\\":\\"Ford\\",\\"addresss\\":\\"123 Greenacre Road\\"}"
     "test": true
   }' "https://{example.com}/lead/add?key={API_KEY}"
 ```
