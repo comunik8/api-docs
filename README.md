@@ -7,6 +7,14 @@ Submitting leads is done by sending a HTTP **POST** request to our server with a
 The HTTP response to this request contains any validation issues needing to be fixed in the POST request or a success message.
 
 ---
+### Table of Content
+1. Adding Leads
+2. Removing Leads
+3. Data + Type fields
+4. Response
+5. Examples
+
+---
 
 ### Adding Leads
 ### Request
