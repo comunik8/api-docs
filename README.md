@@ -60,6 +60,23 @@ To create or delete a valid lead, you must specify the lead type. These types wi
 
 
 ---
+### RESPONSE
+#### Successful
+HTTP Status: 200 OK  
+Body:
+{
+    "saved": true,
+    "processed": true
+}
+#### Validation failed
+HTTP Status: 400 Bad Request  
+Body:  json message containing failing validations.
+
+#### Error
+HTTP Status: 500 Internal Server Error  
+If you get this error and believe your request is valid, please contact us.
+
+---
 
 ### EXAMPLES
 #### CREATING LEADS
