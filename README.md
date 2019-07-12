@@ -8,7 +8,7 @@ The HTTP response to this request contains any validation issues needing to be f
 
 ---
 ### Table of Content
-1. Adding Leads
+1. [Adding Leads](https://github.com/comunik8/api-docs#adding-leads)
 2. Removing Leads
 3. Data + Type fields
 4. Response
