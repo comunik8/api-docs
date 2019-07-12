@@ -9,10 +9,10 @@ The HTTP response to this request contains any validation issues needing to be f
 ---
 ### Table of Content
 1. [Adding Leads](#adding-leads)
-2. Removing Leads
-3. Data + Type fields
-4. Response
-5. Examples
+2. [Removing Leads](#removing-leads)
+3. [Data + Type fields](#data)
+4. [Response](#response)
+5. [Examples](#examples)
 
 ---
 
