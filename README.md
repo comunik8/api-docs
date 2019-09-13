@@ -34,6 +34,7 @@ Content: valid JSON object
 |surname|surname||yes|
 |mobile|primary phone number|A valid phone number|yes|
 |type|lead type|a valid type name|yes|
+|subtype|lead sub-type||no|
 |other_phone|any other phone number||no|
 |data|any other additional data|valid JSON string|no|
 |test|used only for testing whether data provided is valid, does not save lead |"true" or no data |no|
@@ -96,6 +97,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "mobile":"07840258823",
     "email":"john.doe@test.com",
     "type":"motor-trade",
+    "subtype":"valeter",
     "data": "{\\"vehicle_make\\":\\"Ford\\",\\"addresss\\":\\"123 Greenacre Road\\"}"
   }' "https://{example.com}/lead/add?key={API_KEY}"
 ```
