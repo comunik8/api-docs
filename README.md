@@ -37,6 +37,7 @@ Content: valid JSON object
 |subtype|lead sub-type||no|
 |other_phone|any other phone number||no|
 |data|any other additional data|valid JSON string|no|
+|delays|postpone call by number of seconds|number|no|
 |test|used only for testing whether data provided is valid, does not save lead |"true" or no data |no|
 
 ---
@@ -89,7 +90,7 @@ If you get this error and believe your request is valid, please contact us.
 
 ### EXAMPLES
 #### CREATING LEADS
-##### Successful Submission of lead
+##### Successful Submission of lead (delayed dial out by 10 minutes)
 ```
 curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d '{
     "first_name":"John",
@@ -98,6 +99,7 @@ curl -X POST -H "Content-Type: application/json" -H "Cache-Control: no-cache" -d
     "email":"john.doe@test.com",
     "type":"motor-trade",
     "subtype":"valeter",
+    "delays":600,
     "data": "{\\"vehicle_make\\":\\"Ford\\",\\"addresss\\":\\"123 Greenacre Road\\"}"
   }' "https://{example.com}/lead/add?key={API_KEY}"
 ```
