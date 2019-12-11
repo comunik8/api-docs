@@ -1,4 +1,4 @@
-## Insurance Revolution - Leads API
+## Comunik8 - Leads API
 
 This documentation will describe to partners how they can submit or delete leads in the dialler system via the API.
 
